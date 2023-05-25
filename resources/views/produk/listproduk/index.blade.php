@@ -4,7 +4,7 @@
         <div class="col-12">
             <div class="card mt-2">
                 <div class="card-header">
-                    <h3 class="card-title">User</h3>
+                    <h3 class="card-title">Produk</h3>
                 </div>
                 <div class="card-body">
                     <table id="example2" class="table table-bordered table-striped">
@@ -13,22 +13,21 @@
                                 <th>No.</th>
                                 <th>Aksi</th>
                                 <th>Nama</th>
-                                <th>Email</th>
-                               
-                                <th>Phone</th>
+                                <th>Deskripsi</th>
+                                <th>status</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($list_user as $user)
-                                <tr>
+                            @foreach ($list_listproduk as $lproduk)
+                              <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>
                                         <div class="btn-group">
-                                            <a href="{{ url('/user', $user->id) }}" class="btn btn-primary"><i
+                                            <a href="{{ url('/listproduk', $lproduk->id) }}" class="btn btn-primary"><i
                                                     class="fas fa-info"></i></a>
-                                            <a href="{{ url('/user', $user->id) }}/edit" class="btn btn-warning"><i
+                                            <a href="{{ url('/listproduk', $lproduk->id) }}/edit" class="btn btn-warning"><i
                                                     class="fas fa-edit"></i></a>
-                                            <form action="{{ url('/user', $user->id) }}" method="POST"
+                                            <form action="{{ url('/listproduk', $lproduk->id) }}" method="POST"
                                                 onsubmit="return confirm('apakah anda yakin ingin menghapus data ini?')">
                                                 @csrf
                                                 @method('delete ')
@@ -38,10 +37,10 @@
 
                                         </div>
                                     </td>
-                                    <td>{{ $user->nama }}</td>
-                                    <td>{{ $user->email }}</td>
-                                    <td>{{ $user->phone }}</td>
-                                </tr>
+                                    <td>{{ $lproduk->NAME}}</td>
+                                    <td>{{ $lproduk->description }}</td>
+                                    <td>{{ $lproduk->STATUS}}</td>
+                                </tr>  
                             @endforeach
                     </table>
                 </div>
