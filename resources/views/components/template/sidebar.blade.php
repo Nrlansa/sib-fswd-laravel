@@ -33,7 +33,7 @@
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a href="#" class="nav-link">
+                      <a href="{{ url('/slider') }}" class="nav-link">
                           <i class="nav-icon fas fa-tachometer-alt"></i>
                           <p>
                               Slider

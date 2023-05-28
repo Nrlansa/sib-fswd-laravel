@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\slider;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Landing extends Model
+class Slider extends Model
 {
-    protected $table = 'produk';
+    protected $table = 'slider';
+
 }

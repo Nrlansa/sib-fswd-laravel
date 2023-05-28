@@ -66,7 +66,7 @@
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder">{{ $produk->NAME}}</h5>
+                                    <h5 class="fw-bolder">{{ $produk->name}}</h5>
                                     <!-- Product price-->
                                     {{ $produk->price }}
                                 </div>

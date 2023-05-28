@@ -13,4 +13,17 @@ class KategoriController extends Controller
         $data['list_kategori'] = Kategori::all();
         return view('produk.kategori.index', $data);
     }
+    function store()
+    {
+        $kategori = new Kategori();
+        $kategori->name =  request('name');
+        $kategori->save();
+
+        return redirect('/kategori')->with('success', 'data berhasil ditambahkan');
+    }
+    public function destroy(Kategori $kategori)
+    {
+        $kategori->delete();
+        return redirect('/kategori')->with('success', 'Data Berhasil Dihapus');
+    }
 }

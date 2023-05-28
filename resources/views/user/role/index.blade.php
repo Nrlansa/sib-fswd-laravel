@@ -1,26 +1,38 @@
 <x-app>
-    <!------ card tabel user ------>
-    <div class="row">
-        <div class="col-12">
-            <div class="card mt-2">
-                <div class="card-header">
-                    <h3 class="card-title">Role</h3>
+  <div class="card">
+        <div class="card-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-8 col-md-6">
+                        <h4>Data Role</h4>
+                    </div>
+                    {{-- <div class="col-4 col-md-6">
+                        <div class="d-flex flex-wrap justify-content-center justify-content-md-end">
+                            <a href="{{ url('/role/create') }}" class="btn btn-primary"><i
+                                    class="fa fa-plus mx-2 "></i>Tambah Data User
+                            </a>
+                        </div>
+                    </div> --}}
                 </div>
-                <div class="card-body">
-                    <table id="example2" class="table table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <th>No.</th>
-                                <th>Aksi</th>
+            </div>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <div class="table-responsive">
+                <table id="example2" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                             <th>No.</th>
+                                {{-- <th>Aksi</th> --}}
                                 <th>Nama</th>
                                 <th>Role</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($list_role as $role)
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($list_role as $role)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>
+                                    {{-- <td>
                                         <div class="btn-group">
                                             <a href="{{ url('/role', $role->id) }}" class="btn btn-primary"><i
                                                     class="fas fa-info"></i></a>
@@ -35,14 +47,18 @@
 
 
                                         </div>
-                                    </td>
-                                    <td>{{ $role->nama }}</td>
+                                    </td> --}}
+                                    <td>{{ $role->name }}</td>
                                     <td>{{ $role->role }}</td>
 
                                 </tr>
                             @endforeach
-                    </table>
-                </div>
+                    </tbody>
+                </table>
             </div>
         </div>
+        <!-- /.card-body -->
+    </div>
+
+
 </x-app>

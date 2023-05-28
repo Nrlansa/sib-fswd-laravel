@@ -2,25 +2,24 @@
     <div class="card">
         <div class="card-header">
             <div class="card-title">
-                Edit data User
+                tambah data User
             </div>
         </div>
         <div class="card-body">
-            <form action="{{ url('/user', $user->id) }}" method="post">
+            <form action="{{ url('/user') }}" method="post">
                 @csrf
-                @method('put')
                 <div class="row">
                     <div class="col-md-6 col-sm-6">
                         <div class="form-group">
                             <label for="" class="control-label">Nama</label>
-                            <input type="text" value="{{ $user->name }}" name="name" id=""
-                                class="form-control">
+                            <input type="text"  name="name" id=""
+                                class="form-control" required>
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-6">
                         <div class="form-group">
                             <label for="" class="control-label">Role</label>
-                            <select name="role" class="form-select" aria-label="Default select example">
+                            <select name="role" class="form-select" aria-label="Default select example" required>
                                 <option selected>Pilih Role</option>
                                 <option value="admin">Admin</option>
                                 <option value="staff">Staff</option>
@@ -30,7 +29,7 @@
                     <div class="col-md-6 col-sm-6">
                         <div class="form-group">
                             <label for="" class="control-label">Email</label>
-                            <input type="email" value="{{ $user->email }}"name="email" id=""
+                            <input type="email" name="email" id=""
                                 class="form-control">
                         </div>
                     </div>
