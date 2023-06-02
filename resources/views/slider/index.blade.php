@@ -8,7 +8,7 @@
                     </div>
                     <div class="col-4 col-md-6">
                         <div class="d-flex flex-wrap justify-content-center justify-content-md-end">
-                            <a href="{{ url('/slider/create') }}" class="btn btn-primary"><i
+                            <a href="{{ url('/admin/slider/create') }}" class="btn btn-primary"><i
                                     class="fa fa-plus mx-2 "></i>Tambah Data slider
                             </a>
                         </div>
@@ -35,9 +35,9 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>
                                     <div class="btn-group">
-                                        <a href="{{ url('/slider', $slider->id) }}" class="btn btn-primary"><i
+                                        <a href="{{ url('/admin/slider', $slider->id) }}" class="btn btn-primary"><i
                                                     class="fas fa-info"></i></a>
-                                            <a href="{{ url('/slider', $slider->id) }}/edit" class="btn btn-warning"><i
+                                            <a href="{{ url('/admin/slider', $slider->id) }}/edit" class="btn btn-warning"><i
                                                     class="fas fa-edit"></i></a>
                                             <form action="{{ url('/slider', $slider->id) }}" method="POST"
                                                 onsubmit="return confirm('apakah anda yakin ingin menghapus data ini?')">

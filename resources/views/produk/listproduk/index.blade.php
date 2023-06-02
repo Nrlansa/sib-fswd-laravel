@@ -8,7 +8,7 @@
                     </div>
                     <div class="col-4 col-md-6">
                         <div class="d-flex flex-wrap justify-content-center justify-content-md-end">
-                            <a href="{{ url('/listproduk/create') }}" class="btn btn-primary"><i
+                            <a href="{{ url('/admin/listproduk/create') }}" class="btn btn-primary"><i
                                     class="fa fa-plus mx-2 "></i>Tambah Data Produk
                             </a>
                         </div>

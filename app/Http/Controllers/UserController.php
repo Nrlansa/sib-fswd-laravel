@@ -18,6 +18,21 @@ class UserController extends Controller
     }
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'id_role' => 'required',
+            'password' => 'required|min:6',
+        ], [
+            'name.required' => 'Nama harus diisi.',
+            'email.required' => 'Email harus diisi.',
+            'email.email' => 'Format email tidak valid.',
+            'email.unique' => 'Email sudah digunakan.',
+            'id_role.required' => 'ID Role harus diisi.',
+            'password.required' => 'Password harus diisi.',
+            'password.min' => 'Password minimal harus terdiri dari 6 karakter.',
+        ]);
+        
         $user = new User;
         $user->name = request('name');
         $user->email = request('email');

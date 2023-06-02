@@ -12,8 +12,10 @@
                     <div class="col-md-6 col-sm-6">
                         <div class="form-group">
                             <label for="" class="control-label">Nama</label>
-                            <input type="text"  name="name" id=""
-                                class="form-control" required>
+                            <input type="text" name="name" id="" class="form-control" >
+                            @error('name')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-6">
@@ -27,19 +29,27 @@
                                     <option value="{{ $role->id }}">{{ $role->role }}</option>
                                 @endforeach
                             </select>
+                            @error('id_role')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-6">
                         <div class="form-group">
                             <label for="" class="control-label">Email</label>
-                            <input type="email" name="email" id=""
-                                class="form-control">
+                            <input type="email" name="email" id="" class="form-control">
+                            @error('email')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-6">
                         <div class="form-group">
                             <label for="" class="control-label">Password</label>
                             <input type="password" name="password" id="" class="form-control">
+                            @error('password')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                     </div>
                 </div>

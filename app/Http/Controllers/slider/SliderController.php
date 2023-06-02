@@ -24,22 +24,27 @@ class SliderController extends Controller
         $request->validate([
             'name' => 'required',
             'url' => 'required',
-            'banner' => 'required|image|max:2048', 
+            'banner' => 'required|image|max:2048',
+        ], [
+            'name.required' => 'Nama gambar harus diisi.',
+            'url.required' => 'URL harus diisi.',
+            'banner.required' => 'Gambar harus diunggah.',
+            'banner.image' => 'File harus berupa gambar.',
+            'banner.max' => 'Ukuran gambar maksimal adalah 2MB.',
         ]);
 
         $imagePath = $request->file('banner')->store('sliders', 'public');
 
         $slider = new Slider();
-        $slider->name =  request('name');
-        $slider->name =  request('name');
-        $slider->url =  request('url');
-        $slider->banner = $imagePath ;
+        $slider->name = $request->input('name');
+        $slider->url = $request->input('url');
+        $slider->banner = $imagePath;
 
-        
         $slider->save();
 
         return redirect('/slider')->with('success', 'Gambar berhasil ditambahkan');
     }
+
     public function show(Slider $slider)
     {
         $data['slider'] = $slider;

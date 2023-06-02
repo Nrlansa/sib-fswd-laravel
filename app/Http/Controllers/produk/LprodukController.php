@@ -22,7 +22,15 @@ class LprodukController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
+            'name' => 'required',
+            'category_id' => 'required',
             'status' => 'required|in:accepted,rejected,waiting',
+            'price' => 'required|numeric',
+        ], [
+            'name.required' => 'Nama Produk harus diisi.',
+            'category_id.required'=>'Kategori Wajib diisi',
+            'price.required' => 'isi dalam angka rupiah',
+            'status.required'=>'status wajib di pilih'
         ]);
         $lproduk = new Lproduk();
         $lproduk->name = request('name');
@@ -30,10 +38,9 @@ class LprodukController extends Controller
         $lproduk->status = $validatedData['status'];
         $lproduk->description = request('description');
         $lproduk->price = request('price');
-        // @dd($lproduk);
         $lproduk->save();
 
-        return redirect('/listproduk')->with('success', 'data berhasil ditambahkan');
+        return redirect('/admin/listproduk')->with('success', 'data berhasil ditambahkan');
     }
     function edit(Lproduk $lproduk, Kategori $kategori ){
         $data['list_kategori'] = Kategori::all();
@@ -43,17 +50,20 @@ class LprodukController extends Controller
     public function update(Request $request, Lproduk $lproduk)
     {
         $validatedData = $request->validate([
+            'name' => 'required',
+            'category_id' => 'required',
             'status' => 'required|in:accepted,rejected,waiting',
+            'price' => 'required|numeric',
         ]);
         $lproduk->name = request('name');
         $lproduk->category_id = request('category_id');
         $lproduk->status = $validatedData['status'];
         $lproduk->description = request('description');
         $lproduk->price = request('price');
-        // @dd($lproduk);
+        
         $lproduk->save();
 
-        return redirect('/listproduk')->with('success', 'data berhasil ditambahkan');
+        return redirect('/admin/listproduk')->with('success', 'data berhasil ditambahkan');
     }
 
     function show(Lproduk $lproduk, $id, Kategori $kategori)
