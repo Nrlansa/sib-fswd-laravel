@@ -15,7 +15,9 @@
                       alt="User Image">
               </div>
               <div class="info">
-                  <a href="#" class="d-block">Alexander Pierce</a>
+                  <a href="#" class="d-block">{{ auth()->user()->name }}</a>
+                  <span class="d-block" style="color:white
+                  ">Admin</span>
               </div>
           </div>
 
@@ -25,7 +27,7 @@
               <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                   data-accordion="false">
                   <li class="nav-item">
-                      <a href="{{ url('/dashboard') }}" class="nav-link">
+                      <a href="{{ url('/admin/dashboard') }}" class="nav-link">
                           <i class="nav-icon fas fa-tachometer-alt"></i>
                           <p>
                               Dashboard
@@ -33,7 +35,7 @@
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a href="{{ url('/slider') }}" class="nav-link">
+                      <a href="{{ url('/admin/slider') }}" class="nav-link">
                           <i class="nav-icon fas fa-tachometer-alt"></i>
                           <p>
                               Slider
@@ -50,13 +52,13 @@
                       </a>
                       <ul class="nav nav-treeview">
                           <li class="nav-item">
-                              <a href="{{ url('/kategori') }}" class="nav-link">
+                              <a href="{{ url('/admin/kategori') }}" class="nav-link">
                                   <i class="far fa-circle nav-icon"></i>
                                   <p>Kategori</p>
                               </a>
                           </li>
                           <li class="nav-item">
-                              <a href="{{ url('/listproduk') }}" class="nav-link">
+                              <a href="{{ url('/admin/listproduk') }}" class="nav-link">
                                   <i class="far fa-circle nav-icon"></i>
                                   <p>Produk</p>
                               </a>
@@ -73,18 +75,26 @@
                       </a>
                       <ul class="nav nav-treeview">
                           <li class="nav-item">
-                              <a href="{{ url('/role') }}" class="nav-link">
+                              <a href="{{ url('/admin/role') }}" class="nav-link">
                                   <i class="far fa-circle nav-icon"></i>
                                   <p>Role</p>
                               </a>
                           </li>
                           <li class="nav-item">
-                              <a href="{{ url('/user') }}" class="nav-link">
+                              <a href="{{ url('/admin/user') }}" class="nav-link">
                                   <i class="far fa-circle nav-icon"></i>
                                   <p>User</p>
                               </a>
                           </li>
                       </ul>
+                  </li>
+                  <li class="nav-item">
+                      <a href="{{ url('logout') }}" class="nav-link">
+                          <i class="nav-icon fas fa-tachometer-alt"></i>
+                          <p>
+                              Logout
+                          </p>
+                      </a>
                   </li>
               </ul>
           </nav>

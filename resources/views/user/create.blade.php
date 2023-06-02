@@ -6,7 +6,7 @@
             </div>
         </div>
         <div class="card-body">
-            <form action="{{ url('/user') }}" method="post">
+            <form action="{{ url('/admin/user') }}" method="post">
                 @csrf
                 <div class="row">
                     <div class="col-md-6 col-sm-6">
@@ -18,11 +18,14 @@
                     </div>
                     <div class="col-md-6 col-sm-6">
                         <div class="form-group">
-                            <label for="" class="control-label">Role</label>
-                            <select name="role" class="form-select" aria-label="Default select example" required>
+                            <label for="" class="control-label">
+                                Role
+                            </label>
+                            <select name="id_role" id="" class="form-control">
                                 <option selected>Pilih Role</option>
-                                <option value="admin">Admin</option>
-                                <option value="staff">Staff</option>
+                                @foreach ($list_role as $role)
+                                    <option value="{{ $role->id }}">{{ $role->role }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>

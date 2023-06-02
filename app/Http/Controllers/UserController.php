@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -12,22 +13,19 @@ class UserController extends Controller
         return view('user.index', $data);
     }
     function create(){
-        return view('user.create');
+        $data['list_role'] = Role::all();
+        return view('user.create',$data);
     }
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'role' => 'required|in:staff,admin', 
-        ]);
         $user = new User;
         $user->name = request('name');
         $user->email = request('email');
-        $user->role = $validatedData['role'];
+        $user->id_role = request('id_role');
         if (request('password')) $user->password = request('password');
-        // @dd($user);
         $user->save();
 
-        return redirect('/user')->with('success', 'data berhasil ditambahkan');
+        return redirect('/admin/user')->with('success', 'data berhasil ditambahkan');
     }
     public function show(User $user)
     {
@@ -42,24 +40,21 @@ class UserController extends Controller
     }
     public function update(Request $request , User $user)
     {
-        $validatedData = $request->validate([
-            'role' => 'required|in:staff,admin',
-        ]);
       
         $user->name = request('name');
         $user->email = request('email');
-        $user->role = $validatedData['role'];
+        $user->id_role = request('id_role');
         if (request('password')) $user->password = request('password');
         $user->save();
 
-        return redirect('/user')->with('success', 'data berhasil diedit');
+        return redirect('/admin/user')->with('success', 'data berhasil diedit');
        
     }
 
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect('/user')->with('success', 'Data Berhasil Dihapus');
+        return redirect('/admin/user')->with('success', 'Data Berhasil Dihapus');
     }
 
 }

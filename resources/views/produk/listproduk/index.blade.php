@@ -1,5 +1,5 @@
 <x-app>
-     <div class="card">
+    <div class="card">
         <div class="card-header">
             <div class="container">
                 <div class="row">
@@ -22,38 +22,36 @@
                 <table id="example2" class="table table-bordered table-hover">
                     <thead>
                         <tr>
-                           <th>No.</th>
-                                <th>Aksi</th>
-                                <th>Nama</th>
-                                <th>Deskripsi</th>
-                                <th>status</th>
+                            <th>No.</th>
+                            <th>Aksi</th>
+                            <th>Nama</th>
+                            <th>kategori</th>
+                            <th>Deskripsi</th>
+                            <th>status</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($list_listproduk as $lproduk)
-                              <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>
-                                        <div class="btn-group">
-                                            <a href="{{ url('/listproduk', $lproduk->id) }}" class="btn btn-primary"><i
-                                                    class="fas fa-info"></i></a>
-                                            <a href="{{ url('/listproduk', $lproduk->id) }}/edit" class="btn btn-warning"><i
-                                                    class="fas fa-edit"></i></a>
-                                            <form action="{{ url('/listproduk', $lproduk->id) }}" method="POST"
-                                                onsubmit="return confirm('apakah anda yakin ingin menghapus data ini?')">
-                                                @csrf
-                                                @method('delete ')
-                                                <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                                            </form>
-
-
-                                        </div>
-                                    </td>
-                                    <td>{{ $lproduk->name}}</td>
-                                    <td>{{ $lproduk->description }}</td>
-                                    <td>{{ $lproduk->status}}</td>
-                                </tr>  
-                            @endforeach
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a href="{{ url('/listproduk', $lproduk->id) }}/edit" class="btn btn-warning"><i
+                                                class="fas fa-edit"></i></a>
+                                        <form action="{{ url('/listproduk', $lproduk->id) }}" method="POST"
+                                            onsubmit="return confirm('apakah anda yakin ingin menghapus data ini?')">
+                                            @csrf
+                                            @method('delete ')
+                                            <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                        </form>
+                                    </div>
+                                </td>
+                                <td>{{ $lproduk->name }}</td>
+                                <td></td>
+                                <td>{{ $lproduk->description }}</td>
+                                <td>{{ $lproduk->status }}</td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

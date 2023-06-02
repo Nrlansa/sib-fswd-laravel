@@ -55,4 +55,12 @@ class LprodukController extends Controller
 
         return redirect('/listproduk')->with('success', 'data berhasil ditambahkan');
     }
+
+    function show(Lproduk $lproduk, $id, Kategori $kategori)
+    {
+        $lproduk = Lproduk::with('categories')->find($id);
+        $data['lproduk'] = $lproduk;
+        return view('produk.listproduk.show', $data);
+    }
+
 }

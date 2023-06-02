@@ -8,7 +8,7 @@
                     </div>
                     <div class="col-4 col-md-6">
                         <div class="d-flex flex-wrap justify-content-center justify-content-md-end">
-                            <a href="{{ url('/user/create') }}" class="btn btn-primary"><i
+                            <a href="{{ url('/admin/user/create') }}" class="btn btn-primary"><i
                                     class="fa fa-plus mx-2 "></i>Tambah Data User
                             </a>
                         </div>
@@ -34,11 +34,11 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>
                                     <div class="btn-group">
-                                        <a href="{{ url('/user', $user->id) }}" class="btn btn-primary"><i
+                                        <a href="{{ url('/admin/user', $user->id) }}" class="btn btn-primary"><i
                                                     class="fas fa-info"></i></a>
-                                            <a href="{{ url('/user', $user->id) }}/edit" class="btn btn-warning"><i
+                                            <a href="{{ url('/admin/user', $user->id) }}/edit" class="btn btn-warning"><i
                                                     class="fas fa-edit"></i></a>
-                                            <form action="{{ url('/user', $user->id) }}" method="POST"
+                                            <form action="{{ url('/admin/user', $user->id) }}" method="POST"
                                                 onsubmit="return confirm('apakah anda yakin ingin menghapus data ini?')">
                                                 @csrf
                                                 @method('delete ')
@@ -48,7 +48,6 @@
                                 </td>
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->name }}</td>
-
                             </tr>
                         @endforeach
                     </tbody>

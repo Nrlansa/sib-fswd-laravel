@@ -21,6 +21,14 @@ class KategoriController extends Controller
 
         return redirect('/kategori')->with('success', 'data berhasil ditambahkan');
     }
+    public function update(Kategori $kategori)
+    {
+        $kategori->name = request('name');
+
+        $kategori->save();
+
+        return redirect('/kategori')->with('success', 'Data berhasil diedit');
+    }
     public function destroy(Kategori $kategori)
     {
         $kategori->delete();
