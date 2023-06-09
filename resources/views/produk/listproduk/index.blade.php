@@ -25,7 +25,7 @@
                             <th>No.</th>
                             <th>Aksi</th>
                             <th>Nama</th>
-                            <th>kategori</th>
+                            
                             <th>Deskripsi</th>
                             <th>status</th>
                         </tr>
@@ -47,7 +47,7 @@
                                     </div>
                                 </td>
                                 <td>{{ $lproduk->name }}</td>
-                                <td></td>
+                             
                                 <td>{{ $lproduk->description }}</td>
                                 <td>{{ $lproduk->status }}</td>
                             </tr>

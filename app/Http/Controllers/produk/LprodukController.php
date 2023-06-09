@@ -74,3 +74,6 @@ class LprodukController extends Controller
     }
 
 }
+
+
+
